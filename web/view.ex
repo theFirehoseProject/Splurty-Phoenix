@@ -13,5 +13,9 @@ defmodule Splurty.View do
     end
   end
 
+  def csrf_token(conn) do
+    Plug.Conn.get_session(conn, :csrf_token)
+  end
+  
   # Functions defined here are available to all other views/templates
 end
