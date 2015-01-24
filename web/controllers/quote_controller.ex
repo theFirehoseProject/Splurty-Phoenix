@@ -34,4 +34,19 @@ defmodule Splurty.QuoteController do
     |> render("show.html")
   end
 
+  def edit(conn, %{"id" => id}) do
+    {id, _} = Integer.parse(id)
+    conn
+    |> assign(:quote, Repo.get(Splurty.Quote, id))
+    |> render("edit.html")
+  end
+
+
+  def update(conn, %{"id" => id, "quote" => %{"saying" => saying, "author" => author}}) do
+    {id, _} = Integer.parse(id)
+    q = Repo.get(Splurty.Quote, id)
+    q = %{q | saying: saying, author: author }
+    Repo.update(q)
+    redirect conn, to: quote_path(conn, :show, q.id)
+  end
 end

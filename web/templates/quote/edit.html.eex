@@ -1,0 +1,15 @@
+<h1>Edit Quote</h1>
+<form action="<%= quote_path(@conn, :update, @quote.id) %>" method="post">
+  <div class="form-group">
+    <input type="hidden" name="csrf_token" value="<%= csrf_token(@conn) %>">
+    <input type="hidden" name="_method" value="put">
+
+    <label for="quote[saying]">saying</label>
+    <input type="text" name="quote[saying]" class="form-control" value="<%= @quote.saying %>" />
+
+    <label for="quote[author]">author</label>
+    <input type="text" name="quote[author]" class="form-control" value="<%= @quote.author %>" />
+
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
