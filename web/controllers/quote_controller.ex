@@ -7,4 +7,10 @@ defmodule Splurty.QuoteController do
     render conn, "homepage.html"
   end
 
+  def index(conn, _params) do
+    conn
+    |> assign(:quotes, Repo.all(Splurty.Quote))
+    |> render("index.html")
+  end
+
 end
