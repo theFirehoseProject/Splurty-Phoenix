@@ -7,7 +7,9 @@
   <%= for q <- @quotes do %>
   <tr>
     <td>
-      <%= q.saying %>
+      <a href="<%=quote_path(@conn, :show, q.id) %>">
+        <%= q.saying %>
+      </a>
     </td>
     <td>
       <%= q.author %>

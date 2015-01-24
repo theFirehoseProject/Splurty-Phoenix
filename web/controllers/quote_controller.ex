@@ -27,4 +27,11 @@ defmodule Splurty.QuoteController do
     redirect conn, to: quote_path(conn, :index)
   end
 
+  def show(conn, %{"id" => id}) do
+    {id, _} = Integer.parse(id)
+    conn
+    |> assign(:quote, Repo.get(Splurty.Quote, id))
+    |> render("show.html")
+  end
+
 end
