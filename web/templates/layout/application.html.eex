@@ -9,6 +9,23 @@
 
     <title>Hello Phoenix!</title>
     <link rel="stylesheet" href="/css/phoenix.css">
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="/js/jquery.restfulizer.js"></script>
+    <script>
+    $(function() {
+      $(".rest").click(function(d) {
+        $('form').submit(function(s) {
+          var input = $("<input>")
+          .attr("type", "hidden")
+          .attr("name", "csrf_token").val("<%= csrf_token(@conn) %>");
+          $(s.target).append($(input));
+        });
+      });
+      $(".rest").restfulizer({});
+
+    });
+    </script>
+
   </head>
 
   <body>

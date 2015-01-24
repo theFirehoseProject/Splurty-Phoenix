@@ -19,6 +19,11 @@
       <a href="<%=quote_path(@conn, :edit, q.id) %>">
         Edit
       </a>
+      |
+      <a href="<%= quote_path(@conn, :destroy, q.id) %>" data-method="DELETE" class="rest">
+        Destroy
+      </a>
+
     </td>
   </tr>
   <% end %>
