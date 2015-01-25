@@ -7,7 +7,9 @@ defmodule Splurty.QuoteController do
   plug :action
 
   def homepage(conn, _params) do
-    render conn, "homepage.html"
+    conn
+    |> assign(:quote, Splurty.Quote.Queries.random)
+    |> render("show.html")
   end
 
   def index(conn, _params) do
