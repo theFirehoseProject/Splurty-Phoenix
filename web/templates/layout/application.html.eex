@@ -9,6 +9,7 @@
 
     <title>Hello Phoenix!</title>
     <link rel="stylesheet" href="/css/phoenix.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="/js/jquery.restfulizer.js"></script>
     <script>
@@ -28,21 +29,46 @@
 
   </head>
 
-  <body>
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-        </ul>
-        <span class="logo"></span>
+  <body class="Site">
+
+    <header>
+      <div class="col-xs-6">
+        <div class="circle">
+          <br />
+          Elixir &amp;
+          <br />
+          Erlang
+          <br />
+          Rock!
+        </div>
+
       </div>
 
+      <div class="col-xs-6 text-right">
+        <div id="header-links">
+          <a href="<%= quote_path(@conn, :new) %>">Contribute</a>
+        </div>
+      </div>
+    </header>
+    <hr class="clear col-xs-12"/>
+
+    <main class="Site-content">
       <%= @inner %>
-
-      <div class="footer">
-        <p><a href="http://phoenixframework.org">phoenixframework.org</a></p>
+    </main>
+    <footer>
+      <div class="col-xs-6">
+        <a href="<%= quote_path(@conn, :homepage)%>">
+          This isn't enough, I need more
+        </a>
       </div>
-
-    </div> <!-- /container -->
+      <div class="col-xs-6 text-right">
+        <a href="http://elixir-lang.org">
+          <img src="/images/elixir.png"/>
+        </a>
+        <a href="http://www.phoenixframework.org/">
+          <img src="/images/phoenix.png" />
+        </a>
+      </div>
+    </footer>
   </body>
 </html>

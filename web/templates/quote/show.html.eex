@@ -1,7 +1,14 @@
-<h1>
-  <%= @quote.saying %>
-</h1>
+<div class="col-xs-10 col-xs-offset-1 page-content">
+  <h3>
+    <span>SPLURTY No. <%= @quote.id %></span>
+    You know <u>you need to learn Elixir</u> because...
+  </h3>
+  <h1 class="text-center">
+    <%= @quote.saying %>
+  </h1>
 
-<h2>
-  <%= @quote.author %>
-</h2>
+  <h2 class="text-right">
+    <%= @quote.author %>
+  </h2>
+
+</div>
